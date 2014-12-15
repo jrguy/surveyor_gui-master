@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>High Touch Courses</title>
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div class="site-wrap">
+		<div class="main">
+
+			<div class="corridor">
+				<div class="wrap">
+
+					<div class="core_no_width">
+						<div class="inner">
+							<a href="#" class="expand" title="maximize panel">
+								<i class="fa fa-expand"></i>
+							</a>
+							<%= yield %>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

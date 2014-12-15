@@ -1,0 +1,42 @@
+<div class="column2">
+  <div class="shadebox round">
+  <div id="survey">
+    <h1 class="round-top"><%= @title %></h1>
+      <%= form_tag surveyforms_path, :method => 'get' do %>
+        <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil, :id => "survey_search" %>
+        </p>
+    <% end %>
+  <%= will_paginate %>
+  <br />
+<table class="surveyList">
+  <thead>
+   <tr>
+      <th>Title</th>
+      <th>Version</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for survey in @surveyforms %>
+      <tr class="<%= cycle("odd", "even") -%>">
+        <td><%= survey.title %></td>
+        <td><%= survey.survey_version %></td>
+        <td><%= link_to "Show", survey %>&nbsp
+        <%= link_to "Edit", edit_surveyform_path(survey) %>&nbsp
+        <%= link_to "Clone", clone_surveyform_path(survey) %>&nbsp
+        <%= link_to "Destroy", survey, data: { confirm: 'Are you sure?' }, :method => :delete %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br />
+<%= will_paginate %>
+<p>
+  <%= link_to "New Survey", new_surveyform_path(), :id => 'survey_search' %>&nbsp
+  <%= link_to "Take a Survey", surveyor.available_surveys_path, :id => 'survey_search' %>&nbsp
+</p>
+</div>
+  </div>
+</div>

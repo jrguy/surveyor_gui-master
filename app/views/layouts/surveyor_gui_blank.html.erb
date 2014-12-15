@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>High Touch Courses</title>
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div class="site-wrap">
+		<div class="main">
+
+			<header>
+				<div class="wrap">
+					<div class="logo">
+						<%= link_to image_tag("htc-logo.png"), root_path %>
+					</div>
+					<%= render 'shared_menus/top_menu' %>
+				</div>
+			</header>
+
+			<div class="corridor">
+				<div class="wrap">
+
+					<div class="breadcrumbs">
+						<%= yield :breadcrumbs %>
+					</div>
+
+					<div class="left-block">
+						<div class="inner">
+							<% if content_for?(:left_menu) %>
+							  <%= yield :left_menu %>
+							<% else %>
+							  <%= render 'shared_menus/left_menu' %>
+							<% end %>
+							<a href="#" class="close-left"title="close panel"></a>
+						</div>
+					</div>
+
+					<div class="core">
+						<div class="inner">
+							<a href="#" class="expand" title="maximize panel">
+								<i class="fa fa-expand"></i>
+							</a>
+							<%= yield %>
+						</div>
+					</div>
+
+					<div class="right-block">
+						<div class="inner">
+							<% if content_for?(:right_menu) %>
+							  <%= yield :right_menu %>
+							<% else %>
+							  <%= render 'shared_menus/right_menu' %>
+							<% end %>
+							<a href="#" class="close-right" title="close panel"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="wrap">
+			Footer Content that no one knows
+		</div>
+	</footer>
+
+</body>
+</html>
